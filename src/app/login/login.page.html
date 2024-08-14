@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+    <ion-select slot="end" [(ngModel)]="selection"  interface="popover" (ionChange)="handleChange($event)">
+      <div slot="label"><ion-text color="danger">User Selection </ion-text></div>
+      <ion-select-option value="buyer">Buyer</ion-select-option>
+      <ion-select-option value="seller">Seller</ion-select-option>
+    </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email" required></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+      Please enter a valid email.
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+      Password is required.
+    </ion-text>
+
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+  </form>
+
+</ion-content>

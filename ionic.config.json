@@ -1,0 +1,7 @@
+{
+  "name": "wsl-ang-ion-n4",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

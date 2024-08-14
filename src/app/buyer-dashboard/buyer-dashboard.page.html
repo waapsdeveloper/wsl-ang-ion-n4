@@ -1,0 +1,42 @@
+<ion-split-pane when="md" contentId="main">
+  <ion-menu contentId="main">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+      <ion-list>
+        <ion-item (click)="nav.push('buyer-dashboard/my-jobs')">
+          <ion-label>Job List</ion-label>
+        </ion-item>
+        <ion-item (click)="nav.push('buyer-dashboard/create-job')">
+          <ion-label>Create Job</ion-label>
+        </ion-item>
+        <ion-item (click)="nav.push('buyer-dashboard/receive-bids')">
+          <ion-label>Received Requests</ion-label>
+        </ion-item>
+        <ion-item (click)="nav.push('buyer-dashboard/accept-bids')">
+          <ion-label>Active Jobs</ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Buyer Dashboard</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="users.logout()">Sign out</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <router-outlet></router-outlet>
+    </ion-content>
+
+  </div>
+</ion-split-pane>
